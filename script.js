@@ -7,7 +7,7 @@ output.append(trDefault);
 let total = 0;
 function task(promise) {
 	return new Promise((resolve, reject) => {
-	    let delay = (Math.random()*2)+1;
+	    let delay = (Math.random()*0.3)+1;
 	    total += delay;
 	    setTimeout(() => {
 	        resolve({ promise: promise, delay: delay }); 
