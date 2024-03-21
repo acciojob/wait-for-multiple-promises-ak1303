@@ -5,30 +5,18 @@ trDefault.innerHTML = `<td colspan="2">Loading...</td>`;
 output.append(trDefault);
 
 let total = 0;
-
-let promise1 = new Promise((resolve, reject) => { 
-    let delay = (Math.random()*2)+1;
-    total += delay;
-    setTimeout(() => {
-        resolve({ promise: 'Promise 1', delay: delay });
-    }, delay * 1000);
-});
-
-let promise2 = new Promise((resolve, reject) => {
-    let delay = (Math.random()*2)+1;
-    total += delay;
-    setTimeout(() => {
-        resolve({ promise: 'Promise 2', delay: delay });
-    }, delay * 1000);
-});
-
-let promise3 = new Promise((resolve, reject) => {
-    let delay = (Math.random()*2)+1;
-    total += delay;
-    setTimeout(() => {
-        resolve({ promise: 'Promise 3', delay: delay });
-    }, delay * 1000);
-});
+function task(promise) {
+	return new Promise((resolve, reject) => {
+	    let delay = (Math.random()*2)+1;
+	    total += delay;
+	    setTimeout(() => {
+	        resolve({ promise: promise, delay: delay }); 
+	    }, delay * 1000);
+	});
+}
+let promise1 =task('Promise 1');
+let promise2 =task('Promise 2');
+let promise3 =task('Promise 3');
 
 Promise.all([promise1, promise2, promise3])
     .then((values) => {
