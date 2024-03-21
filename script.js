@@ -1,5 +1,6 @@
 let output = document.getElementById('output');
 let trDefault = document.createElement('tr');
+trDefault.id='loading';
 trDefault.innerHTML = `<td colspan="2">Loading...</td>`;
 output.append(trDefault);
 
@@ -9,7 +10,7 @@ let promise1 = new Promise((resolve, reject) => {
     let delay = (Math.random()*2)+1;
     total += delay;
     setTimeout(() => {
-        resolve({ promise: 'Promise1', delay: delay });
+        resolve({ promise: 'Promise 1', delay: delay });
     }, delay * 1000);
 });
 
@@ -17,7 +18,7 @@ let promise2 = new Promise((resolve, reject) => {
     let delay = (Math.random()*2)+1;
     total += delay;
     setTimeout(() => {
-        resolve({ promise: 'Promise2', delay: delay });
+        resolve({ promise: 'Promise 2', delay: delay });
     }, delay * 1000);
 });
 
@@ -25,7 +26,7 @@ let promise3 = new Promise((resolve, reject) => {
     let delay = (Math.random()*2)+1;
     total += delay;
     setTimeout(() => {
-        resolve({ promise: 'Promise3', delay: delay });
+        resolve({ promise: 'Promise 3', delay: delay });
     }, delay * 1000);
 });
 
